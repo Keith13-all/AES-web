@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AES Encryption</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <main class="container">
+    <h1>MÃ HÓA AES</h1>
+    <p class="subtitle">Advanced Encryption Standard</p>
+    <p class="description">Hệ thống mã hóa và giải mã dữ liệu sử dụng thuật toán khóa đối xứng AES-128</p>
+
+    <form method="POST" action="/">
+      <label for="input">Nội dung đầu vào</label>
+      <textarea id="input" name="content" rows="5" placeholder="Nhập nội dung cần mã hóa hoặc giải mã">{{ content }}</textarea>
+
+      <label for="key">Khóa (dùng chung cho cả mã hóa và giải mã)</label>
+      <textarea id="key" name="key" rows="2" placeholder="Khóa AES-128, đúng 16 ký tự">{{ key }}</textarea>
+
+      <div class="buttons">
+        <button type="submit" name="mode" value="generate">Tạo khóa</button>
+        <button type="submit" name="mode" value="encrypt">Mã hóa</button>
+        <button type="submit" name="mode" value="decrypt">Giải mã</button>
+      </div>
+    </form>
+
+    <label for="output">Kết quả xử lý</label>
+    {% if error %}<p class="error">{{ error }}</p>{% endif %}
+    <textarea id="output" rows="5" readonly>{{ result }}</textarea>
+  </main>
+
+  <footer>AES | Python Implementation | Information Security</footer>
+</body>
+</html>
